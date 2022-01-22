@@ -5,12 +5,9 @@ class Solution(object):
         :rtype: int
         """
         # count total number of seats
-        total_s = 0
-        for c in corridor:
-            if c=="S":
-                total_s += 1
-        if total_s%2==1 or total_s<2: return 0
-        if total_s==2: return 1
+        seats = [i for i, x in enumerate(corridor) if corridor[i] == "S"]
+        if len(seats)%2==1 or len(seats)<2: return 0
+        if len(seats)==2: return 1
         
         # for every 2 seats, find number of plants between
         i, count_s = 0, 0
